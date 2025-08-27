@@ -1,43 +1,15 @@
 # TE_quantification
+TE_quantification is a package that compares TE copy annotations from RepeatMasker with the transcript annotation file of a given sample based on genomic coordinates. Transcripts were classified into three major categories:
+1. TE-alone: autonomously expressed TE transcripts, defined as transcripts overlapping TE regions by >80% with the first exon also covered by a TE (i.e., TE promoter-driven transcription).
+2. TE-Gene: TE-Gene chimeric transcripts with partial overlap between TE annotations and gene regions.
+3. Gene-alone: transcripts without any overlap with TE-related sequences.
+TE-alone transcripts were further classified into subfamilies, families, and types (DNA transposon, LTR, LINE, SINE, and SVA) following the human TE classification system.
 ## Installation
 1. Make sure Python 3.6 or above and conda installed on your system
 2. `conda env create -f environment.yml -n TE_quantification`
 3. `source activate TE_quantification & cd TE_quantification`
-## Quantify
-```
-usage: TE_quantification.py quantif [-h] -annot ANNOTATION -aln ALIGNMENT -o
-                                    OUTPUT [--num_iterations NUM_ITERATIONS]
-                                    [--only_uniq_mapping ONLY_UNIQ_MAPPING]
-                                    [--infer_init_weights INFER_INIT_WEIGHTS]
-                                    [--alignment_multiple_counting ALIGNMENT_MULTIPLE_COUNTING]
-                                    [--mapping_threshold MAPPING_THRESHOLD]
-                                    [--count_mapping COUNT_MAPPING]
 
-optional arguments:
-  -h, --help            show this help message and exit
-
-required named arguments:
-  -annot ANNOTATION, --annotation ANNOTATION
-                        The path of TE annotation file [GTF]
-  -aln ALIGNMENT, --alignment ALIGNMENT
-                        The path of alignment file [BAM\SAM]
-  -o OUTPUT, --output OUTPUT
-                        The path of output directory
-
-optional arguments:
-  --num_iterations NUM_ITERATIONS
-                        Number of iterations for EM algorithm [default:100]
-  --only_uniq_mapping ONLY_UNIQ_MAPPING
-                        Only count unique mapping reads [default:False]
-  --infer_init_weights INFER_INIT_WEIGHTS
-                        Infer initital weights for EM algorithm from unique
-                        mapping [default:True]
-  --alignment_multiple_counting ALIGNMENT_MULTIPLE_COUNTING
-                        Count TE alignment multiple times [default:True]
-  --mapping_threshold MAPPING_THRESHOLD
-                        Mapping proportion threshold of TE/read [default:1.0]
-```
-## Create curated TE annotation
+## Classification of TE-alone, TE-Gene and Gene-alone transcripts
 ```
 usage: TE_quantification.py annot_select [-h] -rptmsk REPEAT_MASKER_ANNOTATION
                                          -trans_annot TRANSCRIPT_ANNOTATION -o
