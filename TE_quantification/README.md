@@ -3,6 +3,7 @@ TE_quantification is a package that compares TE copy annotations from RepeatMask
 1. TE-alone: autonomously expressed TE transcripts, defined as transcripts overlapping TE regions by >80% with the first exon also covered by a TE (i.e., TE promoter-driven transcription).
 2. TE-Gene: TE-Gene chimeric transcripts with partial overlap between TE annotations and gene regions.
 3. Gene-alone: transcripts without any overlap with TE-related sequences.
+
 TE-alone transcripts were further classified into subfamilies, families, and types (DNA transposon, LTR, LINE, SINE, and SVA) following the human TE classification system.
 ## Installation
 1. Make sure Python 3.6 or above and conda installed on your system
