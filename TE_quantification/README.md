@@ -5,7 +5,7 @@ TE_quantification is a package that compares TE copy annotations from RepeatMask
 2. `conda env create -f environment.yml -n TE_quantification`
 3. `source activate TE_quantification & cd TE_quantification`
 
-## Classification of TE-alone, TE-Gene and Gene-alone transcripts
+## TE-derived transcript classification
 ```
 usage: TE_quantification.py annot_select [-h] -rptmsk REPEAT_MASKER_ANNOTATION
                                          -trans_annot TRANSCRIPT_ANNOTATION -o
